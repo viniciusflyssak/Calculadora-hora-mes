@@ -1,0 +1,84 @@
+unit uFrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TfrmPrincipal = class(TForm)
+    pnlFundo: TPanel;
+    edtHoras: TEdit;
+    edtDias: TEdit;
+    edtValorHora: TEdit;
+    edtValorMes: TEdit;
+    lblHora: TLabel;
+    lblDias: TLabel;
+    lblHorasDia: TLabel;
+    lblValorMes: TLabel;
+    pnlBotoes: TPanel;
+    btnCalcularMes: TSpeedButton;
+    btnHora: TSpeedButton;
+    btnSair: TSpeedButton;
+    procedure btnSairClick(Sender: TObject);
+    procedure validaCampos(Mes: Boolean);
+    procedure btnCalcularMesClick(Sender: TObject);
+    procedure btnHoraClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.validaCampos(Mes: Boolean);
+begin
+  if Trim(edtHoras.Text) = '' then
+  begin
+    raise Exception.Create('As horas devem ser informadas!');
+  end;
+  if Trim(edtDias.Text) = '' then
+  begin
+    raise Exception.Create('A quantidade de dias deve ser informada!');
+  end;
+  if Mes then
+  begin
+    if Trim(edtValorHora.Text) = '' then
+    begin
+      raise Exception.Create('O valor obtido por hora deve ser informado!');
+    end;
+  end
+  else
+  begin
+    if Trim(edtValorMes.Text) = '' then
+    begin
+      raise Exception.Create('O valor obtido no mês deve ser informado!');
+    end;
+  end;
+end;
+
+procedure TfrmPrincipal.btnCalcularMesClick(Sender: TObject);
+begin
+  validaCampos(True);
+  edtValorMes.Text := FloatToStr(StrToFloat(edtValorHora.Text) * StrToInt(edtHoras.Text) * StrToInt(edtDias.Text));
+end;
+
+procedure TfrmPrincipal.btnHoraClick(Sender: TObject);
+begin
+  validaCampos(false);
+  edtValorHora.Text := FloatToStr((StrToFloat(edtValorMes.Text) / StrToInt(edtDias.Text)) / StrToInt(edtHoras.Text));
+end;
+
+procedure TfrmPrincipal.btnSairClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2022/10/12 15:48:41.023,=D:\Projetos Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/10/12 15:50:02.906,D:\Projetos Delphi\Calculadora salário hora para mês\uFrmPrincipal.dfm=D:\Projetos Delphi\Unit1.dfm</Transaction>
+    <Transaction>2022/10/12 15:50:02.906,D:\Projetos Delphi\Calculadora salário hora para mês\uFrmPrincipal.pas=D:\Projetos Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/10/12 16:11:49.707,D:\Projetos Delphi\Calculadora salário hora para mês\projCalculaSalarioHoraMes.dproj=D:\Projetos Delphi\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
